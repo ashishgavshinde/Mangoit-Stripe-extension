@@ -1,0 +1,21 @@
+td.active{
+    background-color: #87CEFA;
+    text-transform: uppercase;
+}
+td.default{
+    font-weight: bold;
+    background-color:  #7CFC00;
+    color: #000000;
+    text-transform: uppercase;
+}
+td.error{
+    background-color: #DC143C;
+    text-transform: uppercase;
+    color: white;
+}
+tbody#card_table_body>tr>td {
+    vertical-align: middle;
+}
+tbody#card_table_body .tr-default{
+    background-color: #FFF8DC;
+}

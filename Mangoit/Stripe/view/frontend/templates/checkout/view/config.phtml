@@ -1,0 +1,28 @@
+<?php
+    /** @var \Mangoit\Stripe\Block\Checkout\View\Config $block */
+    $publishableKey = $block->getPublishableKey();
+    $iframeConfigUrl = $block->getUrl('stripe/checkout/iframeConfig');
+    $isSave = ($block->isSave()) ? "1" : "0";
+    $data = $block->getDataCard();
+    $datas = json_encode($data);
+    $hasCard = $block->checkFlag;
+    $threeDSecure = $block->getUrl('stripe/checkout/threedSecure');
+    $instructions = $block->getConfig()->getInstructions();
+    $isLogin = $block->getCustomerSession()->isLoggedIn();
+?>
+
+<script>
+    if (typeof(window.Mangoit) === 'undefined')
+    {
+        window.Mangoit = {};
+    }
+    window.Mangoit.stripe = {};
+    window.Mangoit.stripe.publishableKey = '<?php echo $publishableKey; ?>';
+    window.Mangoit.stripe.iframeConfigUrl = '<?php echo $iframeConfigUrl; ?>';
+    window.Mangoit.stripe.isSave = Boolean('<?php echo $isSave; ?>' === '1');
+    window.Mangoit.stripe.hasCard = '<?php echo $hasCard; ?>';
+    window.Mangoit.stripe.cards= '<?php echo $datas ?>';
+    window.Mangoit.stripe.threedSecureUrl = '<?php echo $threeDSecure ?>';
+    window.Mangoit.stripe.instructions = '<?php echo $instructions ?>';
+    window.Mangoit.stripe.isLogin = Boolean('<?php echo $isLogin; ?>' === '1');
+</script>

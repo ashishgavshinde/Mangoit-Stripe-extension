@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Mangoit. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Mangoit_Stripe::main" title="Stripe Payment"
+             module="Mangoit_Stripe" sortOrder="30"
+             dependsOnModule="Mangoit_Stripe"
+             resource="Mangoit_Stripe::main" />
+        <add id="Mangoit_Stripe::subscription"
+             title="Subscription Manager" module="Mangoit_Stripe"
+             sortOrder="10" parent="Mangoit_Stripe::main"
+             action="stripe/subscription/index"
+             resource="Mangoit_Stripe::subscription" />
+        <add id="Mangoit_Stripe::settings"
+             title="Settings" module="Mangoit_Stripe"
+             sortOrder="20" parent="Mangoit_Stripe::main"
+             action="adminhtml/system_config/edit/section/payment/stripe"
+             resource="Mangoit_Stripe::subscription" />
+    </menu>
+</config>
